@@ -1,0 +1,51 @@
+//https://www.hackerrank.com/challenges/java-loops/problem
+import java.io.*;
+import java.util.*;
+import java.text.*;
+import java.math.*;
+import java.util.regex.*;
+
+public class Solution {
+    
+static void formula(String[] items) 
+    {
+        int a = 0;
+        int b = 0;
+        int n = 0;
+        int[] result = new int[n];
+        for(int j = 0; j<items.length; j++){
+            String[] val = items[j].split(" ");
+            a = Integer.parseInt(val[0]);
+            b = Integer.parseInt(val[1]);
+            n = Integer.parseInt(val[2]);
+            
+            result = new int[n];
+            int res = a;
+            for(int i = 0; i< n;i++) {            
+                res += (b*(int)Math.pow(2, i));
+                result[i] = res;
+            }
+            for(int i = 0; i <result.length ; i++){
+                System.out.print(result[i] + " ");
+            }
+            System.out.println("");
+        }
+    }
+
+    public static void main(String[] args) {
+
+
+        Scanner in = new Scanner(System.in);
+        int totalNumOfInputs = 0;
+        totalNumOfInputs = Integer.parseInt(in.nextLine());
+        String[] value = new String[totalNumOfInputs];
+        String item;
+        for(int i = 0; i < totalNumOfInputs; i++) {
+            item = in.nextLine();
+            value[i] = String.valueOf(item);
+        }
+
+        formula(value);
+
+    }
+}
