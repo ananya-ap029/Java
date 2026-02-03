@@ -1,51 +1,38 @@
 //https://www.hackerrank.com/challenges/java-loops/problem
-import java.io.*;
-import java.util.*;
-import java.text.*;
-import java.math.*;
-import java.util.regex.*;
+
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.io.PrintWriter;
 
 public class Solution {
-    
-static void formula(String[] items) 
-    {
-        int a = 0;
-        int b = 0;
-        int n = 0;
-        int[] result = new int[n];
-        for(int j = 0; j<items.length; j++){
-            String[] val = items[j].split(" ");
-            a = Integer.parseInt(val[0]);
-            b = Integer.parseInt(val[1]);
-            n = Integer.parseInt(val[2]);
-            
-            result = new int[n];
+
+    public static void main(String[] args) throws IOException {
+        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+        PrintWriter out = new PrintWriter(System.out);
+        int q = Integer.parseInt(br.readLine().trim());
+
+        for (int t = 0; t < q; t++) {
+            String[] parts = br.readLine().trim().split("\\s+");
+            int a = Integer.parseInt(parts[0]);
+            int b = Integer.parseInt(parts[1]);
+            int n = Integer.parseInt(parts[2]);
+
             int res = a;
-            for(int i = 0; i< n;i++) {            
-                res += (b*(int)Math.pow(2, i));
-                result[i] = res;
+            int term = b;               // b * 2^0 to start
+            StringBuilder line = new StringBuilder();
+
+            for (int i = 0; i < n; i++) {
+                res += term;            // add current b * 2^i
+                line.append(res).append(' ');
+                term <<= 1;             // multiply by 2 efficiently
             }
-            for(int i = 0; i <result.length ; i++){
-                System.out.print(result[i] + " ");
-            }
-            System.out.println("");
-        }
-    }
 
-    public static void main(String[] args) {
-
-
-        Scanner in = new Scanner(System.in);
-        int totalNumOfInputs = 0;
-        totalNumOfInputs = Integer.parseInt(in.nextLine());
-        String[] value = new String[totalNumOfInputs];
-        String item;
-        for(int i = 0; i < totalNumOfInputs; i++) {
-            item = in.nextLine();
-            value[i] = String.valueOf(item);
+            // Trim last space and print
+            if (line.length() > 0) line.setLength(line.length() - 1);
+            out.println(line);
         }
 
-        formula(value);
-
+        out.flush();
     }
 }
