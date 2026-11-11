@@ -9,7 +9,7 @@ class HackerRank_Java_Datatypes{
     {
 
 
-
+//TEST
         Scanner sc = new Scanner(System.in);
         int t=sc.nextInt();
 
