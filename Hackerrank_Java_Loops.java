@@ -11,8 +11,8 @@ public class Hackerrank_Java_Loops {
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         PrintWriter out = new PrintWriter(System.out);
         int q = Integer.parseInt(br.readLine().trim());
-
-        for (int t = 0; t < q; t++) {
+        //ANANYA
+         for (int t = 0; t < q; t++) {
             String[] parts = br.readLine().trim().split("\\s+");
             int a = Integer.parseInt(parts[0]);
             int b = Integer.parseInt(parts[1]);
