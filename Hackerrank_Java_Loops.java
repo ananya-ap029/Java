@@ -17,7 +17,7 @@ public class Hackerrank_Java_Loops {
             int a = Integer.parseInt(parts[0]);
             int b = Integer.parseInt(parts[1]);
             int n = Integer.parseInt(parts[2]);
-
+            //SIV
             int res = a;
             int term = b;               // b * 2^0 to start
             StringBuilder line = new StringBuilder();
